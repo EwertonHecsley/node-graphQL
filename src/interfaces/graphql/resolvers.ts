@@ -12,7 +12,7 @@ type ArgsType = {
 const userRepository = new InMemoryUserRepository();
 const createUser = new CreateUserUseCase(userRepository);
 
-export const resolver = {
+export const resolvers = {
     Query: {
         users: () => userRepository.findAll()
     },
