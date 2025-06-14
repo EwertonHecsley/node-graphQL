@@ -1,10 +1,19 @@
 import { UserRepository } from "../../../infra/data/UserRepository";
 import { User } from "./User";
 
+type UpdateUserInput = {
+    id: string;
+    name?: string;
+    email?: string;
+    city?: string;
+}
+
+
 export class UpdateUserUseCase {
     constructor(private readonly userRepository: UserRepository) { }
 
-    async execute(id: string, name?: string, email?: string, city?: string): Promise<void> {
+    async execute(data: UpdateUserInput): Promise<void> {
+        const { id, name, email, city } = data;
         try {
             const user = await this.userRepository.findById(id);
             if (!user) {
