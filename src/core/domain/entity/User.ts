@@ -1,14 +1,17 @@
 import { Entity } from "../../generics/Entity";
 
 type UserType = {
+    id: string;
     name: string;
     email: string;
     city: string;
 }
 
 export class User extends Entity<UserType> {
+    readonly id: string;
     private constructor(props: UserType) {
         super(props);
+        this.id = props.id;
     }
 
     static create(props: UserType): User {
