@@ -18,7 +18,7 @@ Este repositório foi criado com o objetivo de aprender e praticar os conceitos 
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/api-graphql-estudo.git
+git clone git@github.com:EwertonHecsley/node-graphQL.git
 cd api-graphql-estudo
 
 # Instale as dependências
@@ -108,4 +108,4 @@ Este projeto é apenas um ponto de partida. Futuramente, o mesmo poderá ser evo
 
 ---
 
-Feito com dedicação por **Ewerton Hecsley** ✨
+Estudo sera uma eterna evolução: **Ewerton Hecsley** ✨
