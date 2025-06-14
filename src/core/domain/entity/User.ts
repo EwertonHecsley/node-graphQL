@@ -1,5 +1,4 @@
 import { Entity } from "../../generics/Entity";
-import { Identity } from "../../generics/Identity";
 
 type UserType = {
     name: string;
@@ -8,14 +7,14 @@ type UserType = {
 }
 
 export class User extends Entity<UserType> {
-    private constructor(props: UserType, id?: Identity) {
-        super(props, id);
+    private constructor(props: UserType) {
+        super(props);
     }
 
-    static create(props: UserType, id: Identity): User {
+    static create(props: UserType): User {
         return new User({
             ...props
-        }, id)
+        })
     }
 
     get name(): string {
