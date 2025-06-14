@@ -25,8 +25,14 @@ const update = new UpdateUserUseCase(userRepository);
 
 export const resolvers = {
     Query: {
-        users: () => userRepository.findAll(),
-        user: (_: any, args: { id: string }) => userRepository.findById(args.id)
+        users: async () => {
+            const users = await userRepository.findAll();
+            return users.map(user => user.toPlain());
+        },
+        user: async (_: any, args: { id: string }) => {
+            const user = await userRepository.findById(args.id);
+            return user ? user.toPlain() : null;
+        }
     },
     Mutation: {
         createUser: (_: any, args: ArgsType) => {

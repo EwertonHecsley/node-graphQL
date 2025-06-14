@@ -31,4 +31,13 @@ export class User extends Entity<UserType> {
     get city(): string {
         return this.props.city;
     }
+
+    toPlain() {
+        return {
+            id: this.props.id,
+            name: this.props.name,
+            email: this.props.email,
+            city: this.props.city ?? null,
+        };
+    }
 }
