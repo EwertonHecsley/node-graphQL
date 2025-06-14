@@ -13,4 +13,18 @@ export class InMemoryUserRepository implements UserRepository {
     async findAll(): Promise<User[]> {
         return this.users;
     }
+
+    async findById(id: string): Promise<User | null> {
+        const user = this.users.find(user => user.id === id);
+        return user || null;
+    }
+
+    async update(entity: User): Promise<void> {
+        const index = this.users.findIndex(user => user.id === entity.id);
+        this.users[index] = entity;
+    }
+
+    async delete(id: string): Promise<void> {
+        this.users = this.users.filter(user => user.id !== id);
+    }
 }

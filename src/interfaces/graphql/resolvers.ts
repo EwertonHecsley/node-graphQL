@@ -14,7 +14,8 @@ const createUser = new CreateUserUseCase(userRepository);
 
 export const resolvers = {
     Query: {
-        users: () => userRepository.findAll()
+        users: () => userRepository.findAll(),
+        user: (_: any, args: { id: string }) => userRepository.findById(args.id)
     },
     Mutation: {
         createUser: (_: any, args: ArgsType) => {
